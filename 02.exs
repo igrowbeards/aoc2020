@@ -1,7 +1,11 @@
 defmodule DayTwo do
-  def count_valid_passwords do
-    File.stream!("./02_1_input.txt")
-    |> Enum.count(&password_valid_new?/1)
+  def run_p1, do: count_valid_passwords(&password_valid_new?/1) |> IO.inspect()
+  def run_p2, do: count_valid_passwords(&password_valid_old?/1) |> IO.inspect()
+
+  def count_valid_passwords(validator) do
+    File.read!("./02_1_input.txt")
+    |> String.split("\n", trim: true)
+    |> Enum.count(validator)
   end
 
   def password_valid_old?(pass) do
@@ -29,5 +33,5 @@ defmodule DayTwo do
   end
 end
 
-DayTwo.count_valid_passwords()
-|> IO.inspect()
+DayTwo.run_p1()
+DayTwo.run_p2()
