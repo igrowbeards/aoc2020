@@ -11,6 +11,26 @@ defmodule DayFive do
     |> Enum.max()
   end
 
+  def run_p2() do
+    passes = File.read!(@input_path)
+    |> String.split("\n", trim: true)
+    |> Enum.map(&calculate_seat_id/1)
+    |> Enum.sort()
+
+    min = Enum.min(passes)
+    max = Enum.max(passes)
+
+    [result] = Enum.reduce(min..max, [], fn seat_id, acc ->
+      if Enum.member?(passes, seat_id) do
+        acc
+      else
+        [seat_id | acc]
+      end
+    end)
+
+    result
+  end
+
   def calculate_seat_id(<<row::bytes-size(7)>> <> column), do: calculate_row(row) * 8 + calculate_column(column)
 
   def calculate_row(row_id), do: reduce_pass_part(row_id, @rows)

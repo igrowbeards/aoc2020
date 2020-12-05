@@ -18,4 +18,8 @@ defmodule DayFiveTest do
   test "run_p1" do
     assert DayFive.run_p1() == 894
   end
+
+  test "run_p2" do
+    assert DayFive.run_p2() == 579
+  end
 end
