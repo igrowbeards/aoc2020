@@ -1,9 +1,10 @@
 defmodule DayFour do
   @hacked_fields [:byr, :iyr, :eyr, :hgt, :hcl, :ecl, :pid]
+  @input_path File.read!("input_files/04_input.txt")
 
-  def run_p1(input), do: parse_and_count_valid(input)
+  def run_p1(input \\ @input_path), do: parse_and_count_valid(input)
 
-  def run_p2(input), do: parse_and_count_valid(input, true)
+  def run_p2(input \\ @input_path), do: parse_and_count_valid(input, true)
 
   def parse_and_count_valid(input, validate_values? \\ false) do
     input
@@ -84,11 +85,3 @@ defmodule DayFour do
 
   defp element_valid?(_), do: false
 end
-
-File.read!("./04_input.txt")
-|> DayFour.run_p1()
-|> IO.inspect()
-
-File.read!("./04_input.txt")
-|> DayFour.run_p2()
-|> IO.inspect()

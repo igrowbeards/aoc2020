@@ -1,6 +1,6 @@
 defmodule DayThree do
   @default_slope %{x: 3, y: 1}
-  @input_file_path "./03_input.txt"
+  @input_file_path "../input_files/03_input.txt"
 
   def run_p1() do
     @input_file_path
@@ -48,6 +48,3 @@ defmodule DayThree do
 
   defp parse_map(input), do: String.split(input, "\n", trim: true)
 end
-
-DayThree.run_p2() |> IO.inspect()
-DayThree.run_p1() |> IO.inspect()

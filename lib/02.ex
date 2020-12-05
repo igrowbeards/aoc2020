@@ -1,9 +1,11 @@
 defmodule DayTwo do
+  @input_path "../input_files/02_1_input.txt"
+
   def run_p1, do: count_valid_passwords(&password_valid_new?/1) |> IO.inspect()
   def run_p2, do: count_valid_passwords(&password_valid_old?/1) |> IO.inspect()
 
   def count_valid_passwords(validator) do
-    File.read!("./02_1_input.txt")
+    File.read!(@input_path)
     |> String.split("\n", trim: true)
     |> Enum.count(validator)
   end
@@ -32,6 +34,3 @@ defmodule DayTwo do
     {int_a, int_b, target_char, pw}
   end
 end
-
-DayTwo.run_p1()
-DayTwo.run_p2()
