@@ -45,10 +45,12 @@ defmodule DaySixTest do
     assert DaySix.count_groups(input, &DaySix.count_group_affirmative/1) == 6
   end
 
+  @tag :skip
   test "run_p1" do
     assert DaySix.run_p1() == 6612
   end
 
+  @tag :skip
   test "run_p2" do
     assert DaySix.run_p2() == 3268
   end

@@ -1,14 +1,6 @@
 defmodule DaySevenTest do
   use ExUnit.Case
 
-  test "run_p1" do
-  end
-
-  test "run_p2" do
-  end
-
-
-
   test "test_input" do
     test_rules =
     """
@@ -47,6 +39,10 @@ defmodule DaySevenTest do
     target_color = "dotted black"
     assert DaySeven.calculate_possible_containers_count(target_color, test_rules) == 7
 
+  end
+
+  @tag :skip
+  test "run_p1" do
     assert DaySeven.run_p1() == 185
   end
 
@@ -75,7 +71,11 @@ defmodule DaySevenTest do
     """
 
     assert DaySeven.calculate_children("shiny gold", test_rules) == 127
+  end
 
+  @tag :skip
+  test "run_p2" do
     assert DaySeven.run_p2() == 89084
   end
+
 end

@@ -15,10 +15,12 @@ defmodule DayFiveTest do
     assert DayFive.calculate_seat_id("BBFFBBFRLL") == 820
   end
 
+  @tag :skip
   test "run_p1" do
     assert DayFive.run_p1() == 894
   end
 
+  @tag :skip
   test "run_p2" do
     assert DayFive.run_p2() == 579
   end
