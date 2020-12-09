@@ -1,12 +1,12 @@
 defmodule DayEightTest do
   use ExUnit.Case
 
-  # @tag :skip
+  @tag :skip
   test "run_p1" do
     assert DayEight.run_p1() == 1814
   end
 
-  # @tag :skip
+  @tag :skip
   test "run_p2" do
     assert DayEight.run_p2() == 1056
   end
