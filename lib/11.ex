@@ -74,16 +74,7 @@ defmodule DayEleven do
   end
 
   def get_nearest_seats(seats, seat_id) do
-    [
-      get_nearest(seats, seat_id, :nw),
-      get_nearest(seats, seat_id, :n),
-      get_nearest(seats, seat_id, :ne),
-      get_nearest(seats, seat_id, :w),
-      get_nearest(seats, seat_id, :e),
-      get_nearest(seats, seat_id, :sw),
-      get_nearest(seats, seat_id, :s),
-      get_nearest(seats, seat_id, :se)
-    ]
+    Enum.map([:nw, :n, :ne, :w, :e, :sw, :s, :se], fn dir -> get_nearest(seats, seat_id, dir) end)
   end
 
   def offset_for(seat, dir, offset \\ 1)
